@@ -5,6 +5,10 @@ This is a UI lib for iOS. Effects like twitter activity button.
 
 <Here is place for gif>
   
+## Usage
+
+Simply drag CompositeButton to your project and start use it.
+  
 ## **CocoaPods**
 
 ### Cocoapds will be added lately
