@@ -38,6 +38,21 @@ protocol CompositeButtonDelegate: class {
         }
     }
     
+    @IBInspectable open var animatedScaleWhenSelected: CGFloat = 1.5
+    @IBInspectable open var animatedScaleDurationWhenSelected: Double = 0.2
+    @IBInspectable var leftSide: Bool = false
+    @IBInspectable open var selectedImage: UIImage?
+    @IBInspectable open var unselectedImage: UIImage?
+    @IBInspectable open var selectedState: Bool = true {
+        didSet {
+            if selectedState == true {
+                self.setImage(unselectedImage, for: .normal)
+                self.setImage(selectedImage, for: .selected)
+                self.addTarget(self, action: #selector(buttonSelected), for: .touchUpInside)
+            }
+        }
+    }
+    
     func refreshBorder(borderWidth: CGFloat) {
         layer.borderWidth = borderWidth
     }
@@ -61,11 +76,12 @@ protocol CompositeButtonDelegate: class {
         sharedInit()
     }
     
-    override func prepareForInterfaceBuilder() {
+    override public func prepareForInterfaceBuilder() {
         sharedInit()
     }
     
     func sharedInit() {
+        self.clipsToBounds = true
         refreshCorners(value: cornerRadius)
         refreshBorderColor(colorBorder: customBorderColor)
         refreshBorder(borderWidth: borderWidth)
@@ -93,9 +109,6 @@ protocol CompositeButtonDelegate: class {
         }
     }
     
-    @IBInspectable open var animatedScaleWhenSelected: CGFloat = 1.5
-    @IBInspectable open var animatedScaleDurationWhenSelected: Double = 0.2
-    
     override open var isSelected: Bool {
         didSet {
             guard animatedScaleWhenSelected != 1.0 else { return }
@@ -121,31 +134,26 @@ protocol CompositeButtonDelegate: class {
         }
     }
     
-    @IBInspectable open var selectedState: Bool = false {
-        didSet {
-            if selectedState == true {
-                self.setImage(unselectedImage, for: .normal)
-                self.setImage(selectedImage, for: .selected)
-                self.addTarget(self, action: #selector(buttonSelected), for: .touchUpInside)
-            }
-        }
-    }
-    
-    @IBInspectable open var selectedImage: UIImage?
-    @IBInspectable open var unselectedImage: UIImage?
-    
     @objc func buttonSelected(sender:AnyObject) {
         self.isSelected = !self.isSelected
         if isSelected {
             addButtons()
             UIView.animate(withDuration: 0.25) {
                 self.firstButton?.alpha = 1
-                self.firstButton?.center.x = self.center.x-100
                 self.secondButton?.alpha = 1
-                self.secondButton?.center.x = self.center.x-70
-                self.secondButton?.center.y = self.center.y-70
                 self.thirdButton?.alpha = 1
-                self.thirdButton?.center.y = self.center.y-100
+                
+                if self.leftSide {
+                    self.firstButton?.center.x = self.center.x+100
+                    self.secondButton?.center.x = self.center.x+70
+                    self.secondButton?.center.y = self.center.y-70
+                    self.thirdButton?.center.y = self.center.y-100
+                } else {
+                    self.firstButton?.center.x = self.center.x-100
+                    self.secondButton?.center.x = self.center.x-70
+                    self.secondButton?.center.y = self.center.y-70
+                    self.thirdButton?.center.y = self.center.y-100
+                }
             }
         } else {
             removeButtons()
@@ -162,6 +170,7 @@ protocol CompositeButtonDelegate: class {
     @IBInspectable open var thirdButtonImage: UIImage?
     
     func addButtons() {
+        
         firstButton = CompositeButton(frame: CGRect(x: self.center.x, y: self.center.y-20, width: 40, height: 40))
         firstButton?.alpha = 0
         firstButton?.setImage(firstButtonImage, for: .normal)
@@ -213,4 +222,3 @@ protocol CompositeButtonDelegate: class {
         })
     }
 }
-
