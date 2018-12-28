@@ -21,23 +21,28 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgf-fq-vLP" customClass="VVCompositeButton" customModule="VVCompositeButton">
-                                <rect key="frame" x="320" y="607" width="40" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgf-fq-vLP" customClass="VVCompositeButton" customModule="VVCompositeButton">
+                                <rect key="frame" x="310" y="597" width="60" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="N48-pu-NFf"/>
                                     <constraint firstAttribute="width" constant="40" id="dI1-d8-hJO"/>
                                 </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="selectedState" value="YES"/>
                                     <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="close"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="unselectedImage" value="close"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="firstButtonImage" value="circle"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="secondButtonImage" value="triangle"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="thirdButtonImage" value="square"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ko7-mA-hmy" customClass="VVCompositeButton" customModule="VVCompositeButton">
-                                <rect key="frame" x="15" y="607" width="40" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ko7-mA-hmy" customClass="VVCompositeButton" customModule="VVCompositeButton">
+                                <rect key="frame" x="5" y="597" width="60" height="60"/>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="Lms-Ra-344"/>
@@ -50,6 +55,10 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="YES"/>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="selectedState" value="YES"/>
                                     <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="close"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="unselectedImage" value="close"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="firstButtonImage" value="circle"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="secondButtonImage" value="triangle"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="thirdButtonImage" value="square"/>
                                 </userDefinedRuntimeAttributes>
                             </button>
                         </subviews>
@@ -67,6 +76,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="circle" width="180" height="180"/>
         <image name="close" width="180" height="180"/>
+        <image name="square" width="180" height="180"/>
+        <image name="triangle" width="177.23077392578125" height="177.23077392578125"/>
     </resources>
 </document>

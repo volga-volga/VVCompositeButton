@@ -43,15 +43,7 @@ protocol CompositeButtonDelegate: class {
     @IBInspectable var leftSide: Bool = false
     @IBInspectable open var selectedImage: UIImage?
     @IBInspectable open var unselectedImage: UIImage?
-    @IBInspectable open var selectedState: Bool = true {
-        didSet {
-            if selectedState == true {
-                self.setImage(unselectedImage, for: .normal)
-                self.setImage(selectedImage, for: .selected)
-                self.addTarget(self, action: #selector(buttonSelected), for: .touchUpInside)
-            }
-        }
-    }
+    @IBInspectable open var selectedState: Bool = true
     
     func refreshBorder(borderWidth: CGFloat) {
         layer.borderWidth = borderWidth
@@ -67,7 +59,6 @@ protocol CompositeButtonDelegate: class {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.blue
         sharedInit()
     }
     
@@ -82,6 +73,7 @@ protocol CompositeButtonDelegate: class {
     
     func sharedInit() {
         self.clipsToBounds = true
+        self.setImage(unselectedImage, for: .normal)
         refreshCorners(value: cornerRadius)
         refreshBorderColor(colorBorder: customBorderColor)
         refreshBorder(borderWidth: borderWidth)
@@ -111,6 +103,12 @@ protocol CompositeButtonDelegate: class {
     
     override open var isSelected: Bool {
         didSet {
+            
+            if selectedState == true {
+                self.setImage(selectedImage, for: .selected)
+                self.addTarget(self, action: #selector(buttonSelected), for: .touchUpInside)
+            }
+            
             guard animatedScaleWhenSelected != 1.0 else { return }
             
             UIView.animate(withDuration: animatedScaleDurationWhenSelected, animations: {
