@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import VVCompositeButton
 
 class ViewController: UIViewController {
 
