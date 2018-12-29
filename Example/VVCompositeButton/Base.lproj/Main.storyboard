@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="vXZ-lx-hvc">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="VVCompositeButton_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgf-fq-vLP" customClass="VVCompositeButton" customModule="VVCompositeButton">
+                                <rect key="frame" x="310" y="597" width="60" height="60"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="N48-pu-NFf"/>
+                                    <constraint firstAttribute="width" constant="40" id="dI1-d8-hJO"/>
+                                </constraints>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selectedState" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="close"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="unselectedImage" value="close"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="firstButtonImage" value="circle"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="secondButtonImage" value="triangle"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="thirdButtonImage" value="square"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ko7-mA-hmy" customClass="VVCompositeButton" customModule="VVCompositeButton">
+                                <rect key="frame" x="5" y="597" width="60" height="60"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Lms-Ra-344"/>
+                                    <constraint firstAttribute="height" constant="40" id="YzI-4i-Vsp"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="selectedState" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="close"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="unselectedImage" value="close"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="firstButtonImage" value="circle"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="secondButtonImage" value="triangle"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="thirdButtonImage" value="square"/>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="sgf-fq-vLP" secondAttribute="trailing" constant="15" id="3RC-LR-M8U"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="sgf-fq-vLP" secondAttribute="bottom" constant="20" id="HPG-c3-knc"/>
+                            <constraint firstItem="ko7-mA-hmy" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="15" id="Z0k-Jt-2vG"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="ko7-mA-hmy" secondAttribute="bottom" constant="20" id="ifR-Xr-Gjn"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="circle" width="180" height="180"/>
+        <image name="close" width="180" height="180"/>
+        <image name="square" width="180" height="180"/>
+        <image name="triangle" width="177.23077392578125" height="177.23077392578125"/>
+    </resources>
+</document>
